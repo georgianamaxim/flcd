@@ -1,10 +1,8 @@
 class Node:
-    def __init__(self, key):
+    def __init__(self, key, value):
         self.key = key
+        self.value = value
         self.next = None
-
-    def __str__(self):
-        return "Node : " + self.key
 
 
 class HashTable:
@@ -23,8 +21,8 @@ class HashTable:
 
         return hash_sum
 
-    def insert(self, key, value=0):
-        """Inserts a key"""
+    def insert(self, key, value):
+        """Add a value to our array by its key"""
         # increment the size
         self.__size += 1
 
@@ -37,7 +35,7 @@ class HashTable:
 
         if node is None:
             # if node does not exist, create it
-            self.__list[index] = Node(key)
+            self.__list[index] = Node(key, value)
             return index
 
         # there is a collision, we need to iterate to the end of the ll at that index
@@ -48,13 +46,17 @@ class HashTable:
             node = node.next
 
         # insert the new node to the end of the list
+        if previous.key == key:
+            previous.value = value
+            return index
 
-        previous.next = Node(key)
+        else:
+            previous.next = Node(key, value)
 
         return index
 
     def get(self, key):
-        """Return the index of the key or None"""
+        """Return the corresponding value of the parameter key"""
         # get hash
         index = self.hash(key)
 
@@ -68,15 +70,31 @@ class HashTable:
             return None
         else:
             # it was found, return the corresponding value
-            return index
+            return current_node.value
 
-    def __str__(self):
-        _str = ""
-        for index in range(self.__capacity):
-            _str += "Pos : " + str(index) + " : "
-            node = self.__list[index]
-            while node is not None:
-                _str += str(node) + " , "
-                node = node.next
-            _str += "\n"
-        return _str
+    def remove(self, key):
+
+        # get hash
+        index = self.hash(key)
+
+        current_node = self.__list[index]
+        previous_node = None
+
+        # get to the corresponding node
+        while current_node is not None and current_node.key != key:
+            previous_node = current_node
+            current_node = current_node.next
+
+        if current_node is None:
+            # the key was not found
+            return None
+        else:
+            self.__size -= 1
+            result = current_node.value
+
+            if previous_node is None:
+                current_node = None
+            else:
+                previous_node.next = previous_node.next.next
+
+            return result
