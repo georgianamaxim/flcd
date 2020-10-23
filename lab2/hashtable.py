@@ -49,6 +49,9 @@ class HashTable:
 
         # insert the new node to the end of the list
 
+        if previous.key == key:
+            return index
+
         previous.next = Node(key)
 
         return index
@@ -67,7 +70,7 @@ class HashTable:
             # the key was not found
             return None
         else:
-            # it was found, return the corresponding value
+            # it was found, return the corresponding index
             return index
 
     def __str__(self):
