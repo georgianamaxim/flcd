@@ -4,6 +4,11 @@ class Node:
         self.value = value
         self.next = None
 
+    def __str__(self):
+        if self.value:
+            return str(self.value) + " : " + self.key
+        return self.key
+
 
 class HashTable:
     def __init__(self, capacity):
@@ -21,8 +26,8 @@ class HashTable:
 
         return hash_sum
 
-    def insert(self, key, value):
-        """Add a value to our array by its key"""
+    def insert(self, key, value=None):
+        """Inserts a key"""
         # increment the size
         self.__size += 1
 
@@ -46,17 +51,16 @@ class HashTable:
             node = node.next
 
         # insert the new node to the end of the list
+
         if previous.key == key:
-            previous.value = value
             return index
 
-        else:
-            previous.next = Node(key, value)
+        previous.next = Node(key, value)
 
         return index
 
     def get(self, key):
-        """Return the corresponding value of the parameter key"""
+        """Return the index of the key or None"""
         # get hash
         index = self.hash(key)
 
@@ -69,32 +73,16 @@ class HashTable:
             # the key was not found
             return None
         else:
-            # it was found, return the corresponding value
-            return current_node.value
+            # it was found, return the corresponding index
+            return index
 
-    def remove(self, key):
-
-        # get hash
-        index = self.hash(key)
-
-        current_node = self.__list[index]
-        previous_node = None
-
-        # get to the corresponding node
-        while current_node is not None and current_node.key != key:
-            previous_node = current_node
-            current_node = current_node.next
-
-        if current_node is None:
-            # the key was not found
-            return None
-        else:
-            self.__size -= 1
-            result = current_node.value
-
-            if previous_node is None:
-                current_node = None
-            else:
-                previous_node.next = previous_node.next.next
-
-            return result
+    def __str__(self):
+        _str = ""
+        for index in range(self.__capacity):
+            _str += "Pos : " + str(index) + " : "
+            node = self.__list[index]
+            while node is not None:
+                _str += str(node) + " , "
+                node = node.next
+            _str += "\n"
+        return _str
