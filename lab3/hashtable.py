@@ -6,7 +6,7 @@ class Node:
 
     def __str__(self):
         if self.value:
-            return str(self.value) + " : " + self.key
+            return self.key + " : " + str(self.value)
         return self.key
 
 

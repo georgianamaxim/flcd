@@ -28,6 +28,11 @@ def detect_tokens(line):
             i += 1
             current_token = ''
 
+        if line[i] == '-':
+            if line[i+1] != ' ':
+                current_token += line[i]
+                i+=1
+
         if line[i] in separators:
             if current_token:
                 tokens.append(current_token)
@@ -41,7 +46,7 @@ def detect_tokens(line):
                 tokens.append(current_token)
             count = 0
             while i < len(line) and count < 2:
-                if line[i] == '"' and line[i-1]!="\\":
+                if line[i] == '"' and line[i - 1] != "\\":
                     count += 1
                 current_token += line[i]
                 i += 1
