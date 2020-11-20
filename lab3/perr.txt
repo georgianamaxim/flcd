@@ -1,5 +1,5 @@
 {
-vect[integer][100] @numbers;
+vect[integer][100] numbers;
 integer n;
 integer largest;
 integer count;

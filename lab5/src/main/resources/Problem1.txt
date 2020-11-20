@@ -1,0 +1,15 @@
+fun p1() {
+ 	let nr: int, i: int, prime: boolean = true;
+ 	console.read(nr);
+ 	for (i = 1; i <= nr; i ++) {
+ 		if (nr % i == 0) {
+ 			prime = false;
+ 		}
+ 	}
+ 	if (prime == true) {
+ 		console.write(nr + " is prime");
+ 	}
+ 	else {
+ 		console.write(nr + " is not prime");
+ 	}
+ }

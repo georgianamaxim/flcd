@@ -1,12 +1,7 @@
 {
-vect[integer][100] numbers;
 integer n;
-integer largest;
-integer count;
-integer i;
-integer a;
 {
-count is 0;
+count is -2;
 read >>> n;
 numbers is [];
 forloop(i is 0; i < n; i is i + 1)
