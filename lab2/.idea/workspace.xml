@@ -2,13 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="afda9e77-dd3d-4514-b9a2-b381a9f3741d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/cr.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../lab3/fa.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../lab3/fa.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lab3/p3.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../lab3/p3.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lab3/perr.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../lab3/perr.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab3/fa.py" beforeDir="false" afterPath="$PROJECT_DIR$/../lab3/fa.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab3/fa.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../lab3/fa.txt" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -30,7 +26,7 @@
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/.." />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../lab3" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RunDashboard">
