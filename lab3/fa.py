@@ -36,13 +36,6 @@ class FiniteAutomata(object):
                     self.__transitions[trans_key] = [tokens[3]]
 
                 line = f.readline().strip()
-            # print(self.__final_states)
-            # print(self.__transitions)
-            #
-            # print(self.__set_of_states)
-            # print( self.__alphabet)
-            # print(self.__initial_state)
-            # print(self.__final_state)
 
     def get_states(self, transitions):
         states = []
@@ -103,7 +96,7 @@ if __name__ == '__main__':
         print("""
         1.Set Of States
         2.Alphabet
-        3.Transitions
+        3.Initial State
         4.Set of final states
         5.Exit/Quit
         """)
