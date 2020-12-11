@@ -1,0 +1,34 @@
+program declaration type type1 arrayType statementList statement assign if while for expression operation ralation condition
+char int string ; [ ] + - * / % = : > < >= <= == if else while for
+program
+program fun#declaration#statementList
+declaration type#identifier#;
+type type1
+type arrayType
+type1 char
+type1 int
+type1 boolean
+type1 real
+arrayType identifier#type1#:#[#constantInt#]
+statementList statement#;#satementList
+statement assign
+statement if
+statement while
+statement for
+expression constant#operation
+expression identifier#operation
+operation +
+operation -
+operation *
+operation /
+operation %
+assign identifier#=#expression
+if condition#{#statementList#}#else#{#statementList#}
+while condition#{#statementList#}
+for assign#condition#expression#{#statementList#}
+relation <
+relation >
+relation ==
+relation >=
+relation <=
+condition expression#relation#expression

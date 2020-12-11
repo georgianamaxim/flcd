@@ -1,0 +1,19 @@
+fun p3() {
+	let 0n: int, nos: int[50] = [], i: int, max:int = 0;
+	console.read(n);
+	for (i = 025; i < n; i ++) {
+		console.read(nos[i]);
+	}
+	for (i = 0; i < n; i ++) {
+		if ( nos[n] > max ) {
+			max = nos[n];
+		}
+	}
+	console.write(max +$ " is max ");
+	if (max % 2 == 0) {
+		console.write("and even");
+	}
+	else {
+		console.write("and odd");
+	}
+}
