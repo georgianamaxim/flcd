@@ -2,8 +2,51 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="afda9e77-dd3d-4514-b9a2-b381a9f3741d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lab3/fa.py" beforeDir="false" afterPath="$PROJECT_DIR$/../lab3/fa.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab 6/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab 6/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab 6/gradlew" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab 6/gradlew.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab 6/settings.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab 6/src/main/java/ro/ubbcluj/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab 6/src/main/java/ro/ubbcluj/domain/Automata/FiniteAutomata.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab 6/src/main/java/ro/ubbcluj/domain/Symbol/Node.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab 6/src/main/java/ro/ubbcluj/domain/Symbol/SymbolTable.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab 6/src/main/java/ro/ubbcluj/domain/grammar/Grammar.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab 6/src/main/java/ro/ubbcluj/services/LexicalAnalyzer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab 6/src/main/java/ro/ubbcluj/services/LrParser.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab 6/src/main/java/ro/ubbcluj/utils/Pair.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab 6/src/main/resources/Problem1.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab 6/src/main/resources/Problem2.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab 6/src/main/resources/Problem3.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab 6/src/main/resources/Problem4.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab 6/src/main/resources/definedTokens.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab 6/src/main/resources/fa.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab 6/src/main/resources/fa_1.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab 6/src/main/resources/fa_2.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab 6/src/main/resources/g1.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab 6/src/main/resources/g2.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab5/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab5/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab5/gradlew" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab5/gradlew.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab5/settings.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab5/src/main/java/ro/ubbcluj/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab5/src/main/java/ro/ubbcluj/domain/Automata/FiniteAutomata.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab5/src/main/java/ro/ubbcluj/domain/Symbol/Node.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab5/src/main/java/ro/ubbcluj/domain/Symbol/SymbolTable.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab5/src/main/java/ro/ubbcluj/domain/grammar/Grammar.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab5/src/main/java/ro/ubbcluj/services/LexicalAnalyzer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab5/src/main/java/ro/ubbcluj/utils/Pair.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab5/src/main/resources/Problem1.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab5/src/main/resources/Problem2.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab5/src/main/resources/Problem3.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab5/src/main/resources/Problem4.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab5/src/main/resources/definedTokens.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab5/src/main/resources/fa.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab5/src/main/resources/fa_1.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab5/src/main/resources/fa_2.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab5/src/main/resources/g1.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab5/src/main/resources/g2.txt" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
