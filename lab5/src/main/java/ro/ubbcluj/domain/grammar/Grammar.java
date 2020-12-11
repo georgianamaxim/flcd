@@ -1,7 +1,5 @@
 package ro.ubbcluj.domain.grammar;
 
-import ro.ubbcluj.utils.Pair;
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.*;
