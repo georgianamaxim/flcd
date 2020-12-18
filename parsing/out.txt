@@ -1,0 +1,10 @@
+{$0, abbc$, [epsilon]}
+{$0a2, bbc$, [epsilon]}
+{$0a2b4, bc$, [epsilon]}
+{$0a2b4b4, c$, [epsilon]}
+{$0a2b4b4c5, $, [epsilon}
+{$0a2b4b4A6, $, [3]}
+{$0a2b4A6, $, [2,3]}
+{$0a2A3, $, [2,2,3]}
+{$0S1, $, [1,2,2,3]}
+{acc, $, [1,2,2,3]}
