@@ -1,5 +1,3 @@
-import time
-
 from grammar import Grammar
 
 
@@ -22,20 +20,19 @@ class LrParser:
                 e = ["."] + w
                 self.__dotted_productions[non_terminal].append(e)
 
-    def closure(self, closure_map, transition_value):
-        dot_index = transition_value.index(".")
-        transitions_map = self.dottedproductions
-        if dot_index + 1 == len(transition_value):
+    def closure(self, closure_map, transition_map, transition_value):
+        i_dot = transition_value.index(".") + 1
+        if len(transition_value) != i_dot:
+            after = transition_value[i_dot]
+            if after in self.__grammar.get_non_terminals():
+                if after not in closure_map:
+                    closure_map[after] = transition_map[after]
+                else:
+                    closure_map[after] += transition_map[after]
+                for trans in transition_map[after]:
+                    self.closure(closure_map, transition_map, trans)
+        else:
             return
-        after_dot = transition_value[dot_index + 1]
-        if after_dot in self.nonTerminals:
-            non_terminal = after_dot
-            if non_terminal not in closure_map:
-                closure_map[non_terminal] = transitions_map[non_terminal]
-            else:
-                closure_map[non_terminal] += transitions_map[non_terminal]
-            for transition in transitions_map[non_terminal]:
-                self.closure(closure_map, transition)
 
     def shift_dot(self, transition):
         i_dot = transition.index(".")
@@ -81,10 +78,6 @@ class LrParser:
         return r
 
     def canonical_collection(self):
-        time.sleep(3)
-        with open("out.txt", "w") as f:
-            v = self.var()
-            f.write(v)
         parents = {}
         actions = {}
         states = []
@@ -97,8 +90,9 @@ class LrParser:
                 states.append(s)
                 l = len(states) - 1
                 parents[l] = {"parent_index": p, "before_dot": key}
-                # for k in s:
-                #     print(f"{k}: {s[k]}")
+                print(f"state {l}")
+                for k in s:
+                    print(f"{k}: {s[k]}")
                 # print(s)
                 for k in s:
                     for trans_val in s[k]:
@@ -134,11 +128,14 @@ class LrParser:
                 actions[p["parent_index"]][p["before_dot"]] = key
             else:
                 actions[p["parent_index"]] = {p["before_dot"]: key}
+        print(actions)
+        print(states)
         table = {f"S{i}": actions[i] for i in range(len(states))}
         self.__canonical_collection = table
         self.__actions = actions
         self.__parents = parents
         self.__states = states
+        print(table)
 
     def parse(self, s):
         self.canonical_collection()
@@ -182,9 +179,18 @@ class LrParser:
                  "".join([str(element) for element in queue]),
                  ",".join([str(element) for element in output_band])])
         if status == 0:
+            print(output_band)
             rows.append(["accepted",
                          "".join([str(element) for element in queue]),
                          ",".join([str(element) for element in output_band])])
+            print("Accepted")
+            print(rows)
+            with open("out.txt", "w") as f:
+                f.write("Work stack         Input stack         Output band\n")
+                f.write(str(rows))
+
+        if status == 2:
+            print("Error")
 
     def get_terminals(self):
         print(self.__grammar.get_terminals())
@@ -197,34 +203,3 @@ class LrParser:
 
     def get_productions_by_non_terminal(self, non_terminal):
         print(self.__grammar.get_productions_by_non_terminals(non_terminal))
-
-    def var(self):
-        return """{1,  {S,  {-1, -1}}}
-{2,  {B,  {1, -1}}}
-{3,  {A,  {1, 2}}}
-{4,  {D,  {2, -1}}}
-{5,  {C,  {2, 4}}}
-{6,  {a,  {4, -1}}}
-{7,  {epsilon,  {5, -1}}}
-{8,  {+,  {3, -1}}}
-{9,  {B,  {3, 8}}}
-{10,  {A,  {3, 9}}}
-{11,  {D,  {9, -1}}}
-{12,  {C,  {9, 11}}}
-{13,  {(,  {11, -1}}}
-{14,  {S,  {11, 13}}}
-{15,  {),  {11, 14}}}
- {16,  {B,  {14, -1}}}
-{17,  {A,  {14, 16}}}
-{18,  {D,  {16, -1}}}
-{19,  {C,  {16, 18}}}
-{20,  {a,  {18, -1}}}
-{21,  {*,  {19, -1}}}
-{22,  {D,  {19, 21}}}
-{23,  {C,  {19, 22}}}
-{24,  {a,  {22, -1}}}
-{25,  {epsilon,  {23, -1}}}
-{26,  {epsilon,  {17, -1}}}
-{27,  {epsilon,  {23, -1}}}
-{28,  {epsilon,  {17, -1}}}
-        """
