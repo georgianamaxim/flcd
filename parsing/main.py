@@ -10,8 +10,7 @@ def print_menu():
     print("2. non terminals")
     print("3. productions")
     print("4. productions by a non terminal")
-    print("5. canonical collection")
-    print("6. parse string")
+    print("5. create parsing table")
     print("7. exit")
 
 if __name__ == '__main__':
@@ -44,24 +43,26 @@ if __name__ == '__main__':
     #
     # with open("PIF.out", "w") as f:
     #     f.write(str(pif))
-
     parser = LrParser()
     while True:
-        print_menu()
-        command = input(">>")
-        if command == "1":
-            parser.get_terminals()
-        elif command == "2":
-            parser.get_non_terminals()
-        elif command == "3":
-            parser.get_productions()
-        elif command == "4":
-            nt = input("non terminal : ")
-            parser.get_productions_by_non_terminal(nt)
-        elif command == "5":
-            parser.canonical_collection()
-        elif command == "6":
-            s = input("string : ")
-            parser.parse(s)
-        elif command == "8":
-            break
+        try:
+            print_menu()
+            command = input(">>")
+            if command == "1":
+                parser.get_terminals()
+            elif command == "2":
+                parser.get_non_terminals()
+            elif command == "3":
+                parser.get_productions()
+            elif command == "4":
+                nt = input("non terminal : ")
+                parser.get_productions_by_non_terminal(nt)
+            elif command == "5":
+                parser.canonical_collection()
+            elif command == "6":
+                s = input("string : ")
+                parser.parse(s)
+            elif command == "8":
+                break
+        except Exception as e:
+            print("")
