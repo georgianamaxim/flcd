@@ -51,7 +51,6 @@ class Grammar:
     def get_gross_productions(self):
         return self.__gross_productions
 
-
     def get_productions_by_non_terminals(self, non_terminal):
         return self.__productions[non_terminal]
 
