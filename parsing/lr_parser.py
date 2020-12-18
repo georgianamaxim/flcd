@@ -1,5 +1,3 @@
-import time
-
 from grammar import Grammar
 
 
@@ -22,20 +20,19 @@ class LrParser:
                 e = ["."] + w
                 self.__dotted_productions[non_terminal].append(e)
 
-    def closure(self, closure_map, transition_value):
-        dot_index = transition_value.index(".")
-        transitions_map = self.dotted_productions
-        if dot_index + 1 == len(transition_value):
+    def closure(self, closure_map, transition_map, transition_value):
+        i_dot = transition_value.index(".") + 1
+        if len(transition_value) != i_dot:
+            after = transition_value[i_dot]
+            if after in self.__grammar.get_non_terminals():
+                if after not in closure_map:
+                    closure_map[after] = transition_map[after]
+                else:
+                    closure_map[after] += transition_map[after]
+                for trans in transition_map[after]:
+                    self.closure(closure_map, transition_map, trans)
+        else:
             return
-        after_dot = transition_value[dot_index + 1]
-        if after_dot in self.__grammar.get_non_terminals():
-            non_terminal = after_dot
-            if non_terminal not in closure_map:
-                closure_map[non_terminal] = transitions_map[non_terminal]
-            else:
-                closure_map[non_terminal] += transitions_map[non_terminal]
-            for transition in transitions_map[non_terminal]:
-                self.closure(closure_map, transition)
 
     def shift_dot(self, transition):
         i_dot = transition.index(".")
@@ -81,10 +78,6 @@ class LrParser:
         return r
 
     def canonical_collection(self):
-        time.sleep(3)
-        with open("out.txt", "w") as f:
-            v = self.var()
-            f.write(v)
         parents = {}
         actions = {}
         states = []
@@ -96,14 +89,22 @@ class LrParser:
             if s not in states:
                 states.append(s)
                 l = len(states) - 1
-                parents[l] = {"parent": p, "before": key}
+                parents[l] = {"parent_index": p, "before_dot": key}
+                print(f"state {l}")
+                for k in s:
+                    print(f"{k}: {s[k]}")
+                # print(s)
                 for k in s:
                     for trans_val in s[k]:
                         if len(trans_val) > trans_val.index(".") + 1:
                             shifted_transition = self.shift_dot(trans_val)
                             closure_map = {k: [shifted_transition]}
                             self.closure(closure_map, shifted_transition)
-                            queue.append({"parent_key": shifted_transition[shifted_transition.index(".") - 1],"parent": l,"state": closure_map})
+                            queue.append({
+                                "state": closure_map,
+                                "parent_key": shifted_transition[shifted_transition.index(".") - 1],
+                                "parent": l,
+                            })
             else:
                 if p in actions:
                     actions[p][key] = states.index(s)
@@ -127,11 +128,14 @@ class LrParser:
                 actions[p["parent_index"]][p["before_dot"]] = key
             else:
                 actions[p["parent_index"]] = {p["before_dot"]: key}
+        print(actions)
+        print(states)
         table = {f"S{i}": actions[i] for i in range(len(states))}
         self.__canonical_collection = table
         self.__actions = actions
         self.__parents = parents
         self.__states = states
+        print(table)
 
     def parse(self, s):
         self.canonical_collection()
@@ -175,9 +179,18 @@ class LrParser:
                  "".join([str(element) for element in queue]),
                  ",".join([str(element) for element in output_band])])
         if status == 0:
+            print(output_band)
             rows.append(["accepted",
                          "".join([str(element) for element in queue]),
                          ",".join([str(element) for element in output_band])])
+            print("Accepted")
+            print(rows)
+            with open("out.txt", "w") as f:
+                f.write("Work stack         Input stack         Output band\n")
+                f.write(str(rows))
+
+        if status == 2:
+            print("Error")
 
     def get_terminals(self):
         print(self.__grammar.get_terminals())
@@ -190,16 +203,3 @@ class LrParser:
 
     def get_productions_by_non_terminal(self, non_terminal):
         print(self.__grammar.get_productions_by_non_terminals(non_terminal))
-
-    def var(self):
-        return """{$0, abbc$, [epsilon]}
-{$0a2, bbc$, [epsilon]}
-{$0a2b4, bc$, [epsilon]}
-{$0a2b4b4, c$, [epsilon]}
-{$0a2b4b4c5, $, [epsilon}
-{$0a2b4b4A6, $, [3]}
-{$0a2b4A6, $, [2,3]}
-{$0a2A3, $, [2,2,3]}
-{$0S1, $, [1,2,2,3]}
-{acc, $, [1,2,2,3]}
-"""
