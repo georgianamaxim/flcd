@@ -6,7 +6,7 @@
 %} 
 
 DIGIT 		[0-9] 
-INTEGER		0|[1-9][0-9]*
+INTEGER		[1-9][0-9]*|0|[-][1-9][0-9]*
 LETTER		[a-zA-Z]
 CHARACTER	[']({LETTER}|{DIGIT})[']
 WORD		["]({LETTER}|{DIGIT}|[ \t]|[:])*["]
@@ -23,7 +23,7 @@ ID			{LETTER}({LETTER}|{DIGIT})*
 "vect"		{printf("Reserved word: %s\n", yytext);}
 "forloop"	{printf("Reserved word: %s\n", yytext);}
 "read"		{printf("Reserved word: %s\n", yytext);}
-"write"		{printf("Reserved word: %s\n", yytext);}
+"display"	{printf("Reserved word: %s\n", yytext);}
 
 
 "+"			{printf("Operator: %s\n", yytext);}
