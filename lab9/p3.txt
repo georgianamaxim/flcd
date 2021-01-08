@@ -1,0 +1,28 @@
+{
+integer n;
+integer i;
+{
+count is -2;
+read >>> n;
+numbers is [];
+forloop(i is 0; i < n; i is i + 1)
+{
+read >>> a;
+numbers[i] is a;
+condition(a > largest) then
+{
+largest is a;
+}
+}
+forloop(i is 0; i < n; i is i + 1)
+{
+condition(numbers[i] = a) then
+{
+count is count + 1;
+}
+}
+display <<< "There are ";
+display <<< count;
+display <<< "numbers equal to the largest one";
+}
+}
